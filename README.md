@@ -19,7 +19,7 @@ Repo Structure
     | |- AHC5MVBCXX                                       # raw sequence reads
     | | |- McMahon_Demultiplex_Stats.htm                  # QC information for each sample
     | | |- ME150256                                       # raw sequence reads for sample ME150256
-    | | | |- ME15025616A_ACAGTG_L001_R1_001_fastqc.html   # file
+    | | | |- ME15025616A_ACAGTG_L001_R1_001_fastqc.html   
     | | | |- ME15025616A_ACAGTG_L001_R1_001.fastq.gz      
     | | | |- ME15025616A_ACAGTG_L001_R1_001.fastq.gz.md5  
     | | | |- ME15025616A_ACAGTG_L001_R2_001_fastqc.html   
@@ -37,9 +37,8 @@ Repo Structure
     | | |- ME150270                                       # merged sequence reads for sample ME150270. Same file structure as for ME150256.
     | | |- ME150276                                       # merged sequence reads for sample ME150276. Same file structure as for ME150256.
     | | |- ME150286                                       # merged sequence reads for sample ME150286. Same file structure as for ME150256.
-    | |- AHC5MVBCXX_rRNA_processed                        # merged sequence reads with rRNA removed
-    |- metadata                                           # metadata associated with the samples
-    | | |- ME150256                                       # raw sequence reads for sample ME150256
+    | |- AHC5MVBCXX_rRNA_processed                        # sequence reads with rRNA removed
+    | | |- ME150256                                       # sequence reads with rRNA removed for sample ME150256
     | | | |- ME15025616A_non_rRNA.fastq  
     | | | |- ME15025616A_rRNA.log  
     | | | |- out.extendedFrags.fastq  
@@ -48,9 +47,10 @@ Repo Structure
     | | | |- ME15025616A_rRNA.sam  
     | | | |- out.hist                 
     | | | |- out.notCombined.fastq
-    | | |- ME150270                                       # raw sequence reads for sample ME150270. Same file structure as for ME150256.
-    | | |- ME150276                                       # raw sequence reads for sample ME150276. Same file structure as for ME150256.
-    | | |- ME150286                                       # raw sequence reads for sample ME150286. Same file structure as for ME150256.
+    | | |- ME150270                                       # sequence reads with rRNA removed for sample ME150270. Same file structure as for ME150256.
+    | | |- ME150276                                       # sequence reads with rRNA removed for sample ME150276. Same file structure as for ME150256.
+    | | |- ME150286                                       # sequence reads with rRNA removed for sample ME150286. Same file structure as for ME150256.
+    |- metadata                                           # metadata associated with the samples
     |- protocols                                          # protocols associated with sample collection and processing
     | |- SamplingProcedures.pdf                           # description of sampling procedures
     | |- RNAExtraction.txt                                # RNA extraction for sequencing
