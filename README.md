@@ -14,8 +14,11 @@ Samples were collected approximately every two hours from 6am on August 20 to 6a
 Repo Structure
 --
     project
-    |- README     # the top level description of content
-    |- data       # raw and primary data, are not changed once created
-    |- metadata   # metadata associated with the samples, not changed once created
-    |- protocols  # protocols associated with sample collection and processing
-    |- scripts    # protocols associated with processing and analysis of sequence data
+    |- README                   # the top level description of content
+    |- data                     # raw and primary data, not changed once created
+    |- metadata                 # metadata associated with the samples, not changed once created
+    |- protocols                # protocols associated with sample collection and processing
+    | |- SamplingProcedures.pdf # description of sampling procedures
+    | |- RNAExtraction.txt      # RNA extraction for sequencing
+    | |- Sequencing.txt         # Library prep and sequencing protocols, if available. Otherwise, a description of methods.
+    |- scripts                  # protocols associated with processing and analysis of sequence data
