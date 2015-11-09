@@ -56,7 +56,8 @@ Repo Structure
     | |- RNAExtraction.txt                                # RNA extraction for sequencing
     | |- Sequencing.txt                                   # Library prep and sequencing protocols, if available. Otherwise, a description of methods.
     |- scripts                                            # protocols associated with processing and analysis of sequence data
-
+    | |- merging.txt                                      # Script/command for merging raw reads.
+    | |- remove_rRNA.txt                                   # Script/command for removing rRNA sequences.
 Notes on Data Storage
 --
 The sequencing data associated with this project are quite large and not stored in this repo. As of 2015-11-09, these dare are stored on Zissou at `/home/fmoya/RNAseq_OMD_TOIL15`.
