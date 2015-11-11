@@ -67,6 +67,7 @@ Repo Structure
     | |- MTmapping.md                                     # workflow for mapping metatranscriptomic reads
     | |- MTwrapperFunction.py                             # python wrapper function which executes most steps in the MTmapping.md workflow
     | |- remove_rRNA.txt                                  # script/command for removing rRNA sequences.
+
 Notes on Data Storage
 --
 The sequencing data associated with this project are quite large and not stored in this repo. As of 2015-11-09, these dare are stored on Zissou at `/home/fmoya/RNAseq_OMD_TOIL15`.
