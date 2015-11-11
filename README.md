@@ -50,6 +50,7 @@ Repo Structure
     | | |- ME150270                                       # sequence reads with rRNA removed for sample ME150270. Same file structure as for ME150256.
     | | |- ME150276                                       # sequence reads with rRNA removed for sample ME150276. Same file structure as for ME150256.
     | | |- ME150286                                       # sequence reads with rRNA removed for sample ME150286. Same file structure as for ME150256.
+    | |- refGenomes                                       # reference genomes against which metatranscriptomes will get mapped
     |- metadata                                           # metadata associated with the samples
     |- protocols                                          # protocols associated with sample collection and processing
     | |- SamplingProcedures.pdf                           # description of sampling procedures
@@ -57,6 +58,8 @@ Repo Structure
     | |- Sequencing.txt                                   # Library prep and sequencing protocols, if available. Otherwise, a description of methods.
     |- scripts                                            # protocols associated with processing and analysis of sequence data
     | |- merging.txt                                      # Script/command for merging raw reads.
+    | |- MTmapping.md                                     # Workflow for mapping metatranscriptomic reads
+    | |- MTwrapperFunction.py                             # Python wrapper function which executes most steps in the MTmapping.md workflow
     | |- remove_rRNA.txt                                  # Script/command for removing rRNA sequences.
 Notes on Data Storage
 --
