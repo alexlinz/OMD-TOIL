@@ -18,7 +18,7 @@ use warnings;
 ################################################################################
 my $genomeFolder = '../data/refGenomes';
 my $gffFolder = '../data/gff';
-my $mtFolder = '../data/AHC5MVBCXX';
+my $mtFolder = '../data/AHC5MVBCXX_rRNA_processed';
 my $mapFolder = '../data/mapping';
 my $outputFolder = '../data/readCounts';
 
