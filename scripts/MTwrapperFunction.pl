@@ -34,12 +34,12 @@ my @sampleList = glob($pathToMTs.'/*');
 ### Step 1: Clean up FASTA Header Sequences
 ################################################################################
 
-print "Renaming FASTA header lines.\n";
+#print "Renaming FASTA header lines.\n";
 
-foreach my $genomePath (@genomeList) {
-  system("awk '/^>/{print \">\" ++i; next}{print}' < ".$genomePath." >".$genomePath.".proc");
-  system("mv ".$genomePath.".proc ".$genomePath);
-}
+#foreach my $genomePath (@genomeList) {
+#  system("awk '/^>/{print \">\" ++i; next}{print}' < ".$genomePath." >".$genomePath.".proc");
+#  system("mv ".$genomePath.".proc ".$genomePath);
+#}
 
 ################################################################################
 ### Step 2: Index Genomes
