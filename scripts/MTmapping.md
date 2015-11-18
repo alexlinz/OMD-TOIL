@@ -121,3 +121,5 @@ The inputs to the wrapper function are as follows:
   | mtFolder | location of the metatranscriptome reads |
   | mapFolder | location of the mapped reads |
   | outputFolder | location to store read counts for each genome |
+
+  The python script `processReadCounts.py` aggregates these results into a single `.csv` file, showing the fraction of reads in each MT which mapped to each genome.
