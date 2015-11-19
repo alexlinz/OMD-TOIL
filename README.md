@@ -69,8 +69,10 @@ Repo Structure
     | |- Sequencing.txt                                   # library prep and sequencing protocols, if available. Otherwise, a description of methods.
     |- scripts                                            # protocols associated with processing and analysis of sequence data
     | |- merging.txt                                      # script/command for merging raw reads.
-    | |- MTmapping.md                                     # workflow for mapping metatranscriptomic reads
-    | |- MTwrapperFunction.py                             # python wrapper function which executes most steps in the MTmapping.md workflow
+    | |- processReadCounts.pl                             # script for processing read counts from readMapping.pl
+    | |- readCounts.pl                                    # script/command for merging raw reads.
+    | |- readMapping.md                                   # workflow for mapping metatranscriptomic reads
+    | |- readMapping.pl                                   # python wrapper function which executes most steps in the MTmapping.md workflow
     | |- remove_rRNA.txt                                  # script/command for removing rRNA sequences.
 
 Notes on Data Storage
