@@ -75,4 +75,11 @@ Repo Structure
 
 Notes on Data Storage
 --
-The sequencing data associated with this project are quite large and not stored in this repo. As of 2015-11-09, these dare are stored on Zissou at `/home/fmoya/RNAseq_OMD_TOIL15`.
+The raw and processed sequencing data associated with this project are quite large and not stored in this repo. As of 2015-11-19, these data are stored on Zissou as follows:
+
+| Folder | Location |
+|---|---|
+| data/AHC5MVBCXX     | /home/home/fmoya/RNAseq_OMD_TOIL15 |
+| data/AHC5MVBCXX_merged     | /home/home/fmoya/RNAseq_OMD_TOIL15 |
+| data/AHC5MVBCXX_rRNA_processed     | /home/home/fmoya/RNAseq_OMD_TOIL15 |
+| all other folders | /home/joshamilton/ OMD-TOIL-GitHubRepo|
