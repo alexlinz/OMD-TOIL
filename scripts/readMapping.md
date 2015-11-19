@@ -131,3 +131,5 @@ Counting of Mapped Reads
 --
 
   The python script `processReadCounts.py` aggregates these results into a single `.csv` file, showing the fraction of reads in each MT which mapped to each genome.
+
+_This analysis needs to be updated with proper normalization based on the internal standard._
