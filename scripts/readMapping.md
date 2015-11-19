@@ -29,7 +29,7 @@ Create the following folders, if necessary
 
 * `pathToGFFs` -  a folder containing all GFF files of all reference genomes to be mapped. In FASTA nucleotide format.
 
-Uncompetitive Mapping of Reads
+Mapping of Reads
 --
 This section describes the steps to map metatranscriptomic reads to the reference genomes. For convenience, the script `MTwrapperFunction.pl` will execute the pipeline with a single command. The script takes as input the directories described below, and maps each metatranscriptome to each reference genome via the following commands:
 
@@ -63,29 +63,29 @@ __Note:__ For convenience, the script is currently hard-coded to use the folder 
 
 The inputs to the wrapper function are as follows:
 
-  | Argument | Description  |
-  |---|---|
-  | pathToMTs | location of the metatranscriptome reads to be mapped |
-  | pathToGenomes | location of the reference genomes |
-  | pathToMaps | desired output location of the mapped reads |
-  | numProcs | number of processors to use for mapping |
+| Argument | Description  |
+|---|---|
+| pathToMTs | location of the metatranscriptome reads to be mapped |
+| pathToGenomes | location of the reference genomes |
+| pathToMaps | desired output location of the mapped reads |
+| numProcs | number of processors to use for mapping |
 
-Counting Mapped Reads
+Counting of Mapped Reads: Uncompetitive
 --
 
-This section describes the steps to count the metatranscriptomic reads which mapped to each gene in a reference genome. For convenience, the script `readCounts.pl` will execute the pipeline with a single command. The script takes as input the directories described below, and counts reads mapped to each gene using [htseq-count](http://www-huber.embl.de/HTSeq/doc/count.html#count) for each (metatranscriptome, genome) pair:
+This section describes the steps to count the metatranscriptomic reads which mapped to each gene in a reference genome. __Because each genome is processed individually, it is possible that some reads are being counted in multiple genomes.__ For convenience, the script `readCounts.pl` will execute the pipeline with a single command. The script takes as input the directories described below, and counts reads mapped to each gene using [htseq-count](http://www-huber.embl.de/HTSeq/doc/count.html#count) for each (metatranscriptome, genome) pair:
 
     `/usr/local/bin/htseq-count -f bam -r pos -s no -a 0 -t CDS -i locus_tag -m intersection-strict -o outputFolder/mt-genome.sam mapFolder/mt-genome.sorted.bam gffFolder/genome.gff > outputFolder/mt-genome.out`
 
 where variables are defined as follows:
 
-  | Argument | Description  |
-  |---|---|
-  | outputFolder | location to store read counts for each genome |
-  | gffFolder | location of the gff files for the reference genomes |
-  | mapFolder | location of the mapped reads |
-  | mt | the current metatranscriptome|
-  | genome | the current genome |
+| Argument | Description  |
+|---|---|
+| outputFolder | location to store read counts for each genome |
+| gffFolder | location of the gff files for the reference genomes |
+| mapFolder | location of the mapped reads |
+| mt | the current metatranscriptome|
+| genome | the current genome |
 
 and flags are defined as follows:
 
@@ -117,5 +117,17 @@ The inputs to the wrapper function are as follows:
   | mtFolder | location of the metatranscriptome reads |
   | mapFolder | location of the mapped reads |
   | outputFolder | location to store read counts for each genome |
+
+__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo. The script also specifies use of 24 processors.
+
+Counting of Mapped Reads: Competitive
+--
+
+In the previous section, `htseq-count` was run on each individual (metatranscriptome, genome) pair. As a result, it is possible that some reads mapped to genes in different genomes. To perform a competitive mapping (e.g., count only those reads which map unambiguously to a single gene), the `bam` files for all (metatranscriptome, genome) pairs from the same metatranscriptome can be aggregated, and `htseq-count` run on each aggregated set.
+
+_This analysis needs to be performed and written up._
+
+Counting of Mapped Reads
+--
 
   The python script `processReadCounts.py` aggregates these results into a single `.csv` file, showing the fraction of reads in each MT which mapped to each genome.
