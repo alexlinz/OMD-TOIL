@@ -29,27 +29,21 @@ Create the following folders, if necessary
 
 * `pathToGFFs` -  a folder containing all GFF files of all reference genomes to be mapped. In FASTA nucleotide format.
 
-Mapping Reads
+Uncompetitive Mapping of Reads
 --
 This section describes the steps to map metatranscriptomic reads to the reference genomes. For convenience, the script `MTwrapperFunction.pl` will execute the pipeline with a single command. The script takes as input the directories described below, and maps each metatranscriptome to each reference genome via the following commands:
 
-1. Clean-up the FASTA header files. To avoid potential errors arising from non-alphanumeric characters (such as spaces or underscores), each contig is renamed to a number. For each genome `genome.fna` in `refGenomes`:
-
-    `awk '/^>/{print ">" ++i; next}{print}' < genome.fna > genome.tmp`
-
-    `mv genome.tmp genome.fna`
-
-2. Index the reference genomes. For each genome `genome.fna` in `refGenomes`:
+1. Index the reference genomes. For each genome `genome.fna` in `refGenomes`:
 
     `bwa index -p genome -a is genome.fna`
 
-3. Map the metatranscriptomes to the reference genomes. For each metatranscriptome `sample_non_rRNA.fastq` and reference genome `genome.fna`:
+2. Map the metatranscriptomes to the reference genomes. For each metatranscriptome `sample_non_rRNA.fastq` and reference genome `genome.fna`:
 
     `bwa mem -t 30 genome.fna sample_non_rRNA.fastq > sample-genome.sam`
 
     where '-t' specifies the number of processors. Zissou has 32, please don't use all of them.
 
-4. Manipulate the ouptut. Convert to BAM, sort, and index. Delete SAM and unsorted BAM files to save space. For each `sample-genome.sam` file:
+3. Manipulate the ouptut. Convert to BAM, sort, and index. Delete SAM and unsorted BAM files to save space. For each `sample-genome.sam` file:
 
     `samtools view -b  -S -o sample-genome.bam sample-genome.sam`
 
@@ -64,6 +58,8 @@ This section describes the steps to map metatranscriptomic reads to the referenc
 The script is called as follows:
 
     `perl MTwrapperFunction pathToMTs pathToGenomes pathToMaps numProcs`
+
+__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo. The script also specifies use of 24 processors.
 
 The inputs to the wrapper function are as follows:
 

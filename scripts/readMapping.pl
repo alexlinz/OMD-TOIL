@@ -31,18 +31,7 @@ my @genomeList = glob($pathToGenomes.'/*.fna');
 my @sampleList = glob($pathToMTs.'/*');
 
 ################################################################################
-### Step 1: Clean up FASTA Header Sequences
-################################################################################
-
-#print "Renaming FASTA header lines.\n";
-
-#foreach my $genomePath (@genomeList) {
-#  system("awk '/^>/{print \">\" ++i; next}{print}' < ".$genomePath." >".$genomePath.".proc");
-#  system("mv ".$genomePath.".proc ".$genomePath);
-#}
-
-################################################################################
-### Step 2: Index Genomes
+### Step 1: Index Genomes
 ################################################################################
 
 my $int = 1;
@@ -56,7 +45,7 @@ foreach my $genomePath (@genomeList) {
 }
 
 ################################################################################
-### Step 3: Map Metatranscriptomes to Reference Genomes
+### Step 2: Map Metatranscriptomes to Reference Genomes
 ################################################################################
 
 $int = 1;
@@ -77,7 +66,7 @@ foreach my $samplePath (@sampleList) {
 }
 
 ################################################################################
-### Step 4: Manipulate Output SAM files. Convert to BAM, sort and index. Delete
+### Step 3: Manipulate Output SAM files. Convert to BAM, sort and index. Delete
 ### unsorted SAM and BAM files to save space.
 ################################################################################
 
