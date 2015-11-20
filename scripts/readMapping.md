@@ -29,6 +29,10 @@ Create the following folders, if necessary
 
 * `pathToGFFs` -  a folder containing all GFF files of all reference genomes to be mapped. In FASTA nucleotide format.
 
+Data Processing
+---
+In order for `htseq-count` to properly count reads, the GFF files must be in the proper format. This section will document how to identify and correct errors in your GFF files.
+
 Mapping of Reads
 --
 This section describes the steps to map metatranscriptomic reads to the reference genomes. For convenience, the script `MTwrapperFunction.pl` will execute the pipeline with a single command. The script takes as input the directories described below, and maps each metatranscriptome to each reference genome via the following commands:
