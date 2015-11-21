@@ -124,15 +124,15 @@ The script is called as follows:
 
 The inputs to the wrapper function are as follows:
 
-  | Argument | Description  |
-  |---|---|
-  | genomeFolder | location of the reference genomes |
-  | gffFolder | location of the gff files for the reference genomes |
-  | mtFolder | location of the metatranscriptome reads |
-  | mapFolder | location of the mapped reads |
-  | outputFolder | location to store read counts for each genome |
+| Argument | Description  |
+|---|---|
+| genomeFolder | location of the reference genomes |
+| gffFolder | location of the gff files for the reference genomes |
+| mtFolder | location of the metatranscriptome reads |
+| mapFolder | location of the mapped reads |
+| outputFolder | location to store read counts for each genome |
 
-__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo. The script also specifies use of 24 processors.
+__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo. 
 
 Counting of Mapped Reads: Competitive
 --
