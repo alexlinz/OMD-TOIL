@@ -15,6 +15,8 @@ Ensure the following software is installed:
 
 * [Burrows-Wheeler Aligner](http://bio-bwa.sourceforge.net/) (BWA) - As of 2015-11-09. BWA version 0.7.5a-r405 is on Zissou and accessible by typing `bwa` in the command line.
 
+* [Genome Tools](http://genometools.org/pub/) - This will need to be installed in your `home` folder.
+
 * [samtools](http://www.htslib.org/download/) - This will need to be installed in your `home` folder.
 
 * [HTSeq](http://www-huber.embl.de/HTSeq/doc/overview.html) - As of 2015-11-17, this Python package is installed on Zissou.  We will be using the script `htseq-count` which is accessible from the command line.
@@ -31,7 +33,15 @@ Create the following folders, if necessary
 
 Data Processing
 ---
-In order for `htseq-count` to properly count reads, the GFF files must be in the proper format. This section will document how to identify and correct errors in your GFF files.
+In order for `htseq-count` to properly count reads, the GFF files must be in the proper format. The script `gffValidator` will analyze all GFF files in the `pathToGFFs` folder, and generate a file `pathToGFFs/all.out` describing errors in the GFF files. In Josh's experience (thus far), errors will be one of the following messages:
+
+* `token "string" on line XYZ in file “genome.gff" does not contain exactly one ‘=‘`
+
+  This error occurs when a gene annotation contains a semi-colon. According to the GFFv3 [standard](http://www.sequenceontology.org/gff3.shtml), semi-colons have a reserved meaning and must be escaped. The standard recommends using the URL escape `%3B`.
+
+* `error: could not parse score '' on line XYZ in file ‘genome.gff’`
+
+  This error occurs because a line of the GFF file is incomplete (e.g., missing the score information). Josh found this to occur only for CRISPR arrays defined in the final line of the GFF file. Since he isn't concerned with mapping to CRISPR arrays, he deleted these lines.
 
 Mapping of Reads
 --
