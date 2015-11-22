@@ -132,7 +132,7 @@ The inputs to the wrapper function are as follows:
 | mapFolder | location of the mapped reads |
 | outputFolder | location to store read counts for each genome |
 
-__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo. 
+__Note:__ For convenience, the script is currently hard-coded to use the folder structure described in this repo.
 
 Counting of Mapped Reads: Competitive
 --
@@ -144,6 +144,6 @@ _This analysis needs to be performed and written up._
 Counting of Mapped Reads
 --
 
-  The python script `processReadCounts.py` aggregates these results into a single `.csv` file, showing the fraction of reads in each MT which mapped to each genome.
+  The python script `processReadCounts.py` aggregates these results into a single `.csv` file, showing the percent of reads in each MT which mapped to each genome.
 
 _This analysis needs to be updated with proper normalization based on the internal standard._
