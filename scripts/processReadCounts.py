@@ -29,7 +29,7 @@ pathToReads = '../data/readCounts'
 ################################################################################
 
 # Read in MT reads
-mtReads = pandas.read_csv('../data/miscData/totalReads.csv', index_col=0, sep=',')
+mtReads = pd.read_csv('../data/miscData/totalReads.csv', index_col=0, sep=',')
 
 # Create empty dataframe for genome read counts
 alignedMatrix = pd.DataFrame(columns=[mtReads.index])
@@ -41,7 +41,7 @@ for genomeFile in os.listdir(pathToReads):
         genome = re.search('(.+)-(.+).out', genomeFile).group(2)
 # Some .out files may be empty, so this section needs to be embedded with try/except loop
         try:
-            genomeReads = pandas.read_csv(pathToReads+'/'+genomeFile, index_col=0, sep='\t')
+            genomeReads = pd.read_csv(pathToReads+'/'+genomeFile, index_col=0, sep='\t')
 # Grab the 'unaliged' row and add to the 'unaligned' DF
 # Grab the 'total reads' from the 'mtReads' DF and subtract the 'unaligned.' Add to the 'aligned' DF.
 # Normalize all DFs
