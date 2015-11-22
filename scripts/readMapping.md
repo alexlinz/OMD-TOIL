@@ -27,9 +27,9 @@ Ensure the following data are available:
 
 Create the following folders, if necessary  
 
-* `pathToGenomes` -  a folder containing all reference genomes to be mapped. In FASTA nucleotide format.
+* `pathToGenomes` -  a folder containing all reference genomes to be mapped. In FASTA nucleotide format (`file.fna`). __Note__: The FASTA nucleotide sequence for the internal standard should also be included here.
 
-* `pathToGFFs` -  a folder containing all GFF files of all reference genomes to be mapped. In FASTA nucleotide format.
+* `pathToGFFs` -  a folder containing all GFF files of all reference genomes to be mapped. In FASTA nucleotide format. __Note__: A dummy GFF file for the internal standard should also be included here.
 
 Data Processing
 ---
